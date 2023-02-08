@@ -1,0 +1,28 @@
+{
+  "name": "module10-oops-i-did-it-again",
+  "version": "1.0.0",
+  "description": "Team profile generator!",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest --verbose test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cellopudding/Module10-OOPs-I-did-it-again.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cellopudding/Module10-OOPs-I-did-it-again/issues"
+  },
+  "homepage": "https://github.com/cellopudding/Module10-OOPs-I-did-it-again#readme", 
+  "dependencies": {
+    "inquirer": "8.2.4",
+    "jest": "^24.8.0"
+  }
+}
