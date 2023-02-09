@@ -45,13 +45,13 @@ function createManager(){
 
                             {
                                 type: 'input',
-                                name: 'managerOfficeNumber',
+                                name: 'officeNumber',
                                 message: 'What is the team manager office number?',
                                     },
         
     ]).then((userAnswers) => {
         const manager = new Manager(userAnswers.managerName, userAnswers.managerId, userAnswers.managerEmail, 
-            userAnswers.managerOfficeNumber)
+            userAnswers.officeNumber)
             teamArray.push(manager)
             idArray.push(userAnswers.managerId)
             createTeam()
@@ -85,36 +85,75 @@ function createTeam(){
 
 //addEngineer function same as the manager one (last two), then gnerateTeam 
 
-// // TODO: Create an array of questions for user input
-// const questions = [
-//     {
-//       type: 'input',
-//       name: 'name',
-//       message: 'What is the team manager name?',
-
+function addEngineer() {
+    inquirer.prompt([
       
-//         },
-//     {
-//         type: 'input',
-//         name: 'id',
-//         message: 'What is their employee id?',
-//     },
-//     {
-//         type: 'input',
-//         name: 'email',
-//         message: 'What is their email?',
-//     },
-//     {
-//         type: 'input',
-//         name: 'number',
-//         message: 'What is their  office number?',
-//     },
-// ];
+      {
+        type: "input",
+        name: "engineerName",
+        message: "What is the engineer's name?"
+      },
 
+      {
+        type: "input",
+        name: "engineerId",
+        message: "What is the engineer's employee ID number?" 
+      },
 
+      {
+        type: "input",
+        name: "engineerEmail",
+        message: "What is the engineer's email address?"
+      },
 
+      {
+        type: "input",
+        name: "engineerGithub",
+        message: "What is the engineer's GitHub username?"
+      }
 
+    ]).then(answers => {
+      const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+      teamArray.push(engineer);
+      createTeam();
+    });
 
+  }
+  
+  function addIntern() {
+    inquirer.prompt([
+      
+      {
+        type: "input",
+        name: "internName",
+        message: "What is the intern's name?"
+      },
+
+      {
+        type: "input",
+        name: "internId",
+        message: "What is the intern's employee ID number?" 
+      },
+
+      {
+        type: "input",
+        name: "internEmail",
+        message: "What is the intern's email address?"
+      },
+
+      {
+        type: "input",
+        name: "internSchool",
+        message: "What school does the intern attend?"
+      }
+
+    ]).then(answers => {
+      const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+      teamArray.push(intern);
+      createTeam();
+    });
+
+  }
 
 function createMyTeam(){
     if(!fs.existsSync(DIST_DIR)){
